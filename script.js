@@ -62,6 +62,7 @@ const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
 const containerMovements = document.querySelector('.movements');
+const instructions = document.querySelector('.instructions');
 
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
@@ -241,6 +242,7 @@ btnLogin.addEventListener('click', function (e) {
   if (currentAccount?.pin === +inputLoginPin.value) {
     // DISPLAY UI and message
     containerApp.style.opacity = 100;
+    instructions.style.opacity = 0;
     labelWelcome.textContent = `Logged in as: ${currentAccount.owner}`;
 
     // Create current date and time
@@ -296,8 +298,8 @@ btnTransfer.addEventListener('click', function (e) {
     inputTransferAmount.value = inputTransferTo.value = '';
     inputTransferTo.blur();
     // Clear timer
-    clearInterval(timer)
-    timer= startLogoutTimer()
+    clearInterval(timer);
+    timer = startLogoutTimer();
   }
 });
 
@@ -334,8 +336,8 @@ btnLoan.addEventListener('click', function (e) {
       updateUI(currentAccount);
       inputLoanAmount.value = '';
       // Clear timer
-    clearInterval(timer)
-    timer= startLogoutTimer()
+      clearInterval(timer);
+      timer = startLogoutTimer();
     }, 5000);
   }
 });
